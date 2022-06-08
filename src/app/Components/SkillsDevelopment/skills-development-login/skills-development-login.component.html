@@ -1,0 +1,48 @@
+<div class="gene-login login-v2 pad-y-xl">
+  <div fxLayout="row" fxLayoutAlign="center center">
+     <div fxLayout="column" fxFlex="100" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100" fxFlex.lg="100" fxFlex.xl="100">
+        <mat-toolbar-row fxLayoutAlign="space-between" fxLayout.xs="column" fxLayoutAlign.xs="center center">
+           <span class="mrgn-b-sm" >
+               <p  @slideUp class="text-center text-inverse">
+
+                 <span  class="mrgn-r-sm"><button [routerLink]="['/SkillsDevelopmentRegister']" mat-raised-button color="accent">{{'Sign Up' | translate}}</button> {{'Not Having Account?' | translate}}</span>
+
+                </p>
+           </span>
+        </mat-toolbar-row>
+        <br>
+        <div   fxLayout="row wrap" fxLayoutAlign="center center" class="height-full form-wrap-row set-resp-space" fxLayoutGap.gt-md="15px">
+           <div fxLayout="column" fxFlex="100" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100" fxFlex.lg="100" fxFlex.xl="100">
+              <mat-card class="gene-login-v2 card-full-height card-full-width" @slideRight>
+
+                  <mat-card-content>
+                    <div>
+                      <div fxLayout="column" fxLayoutAlign="center center" class="mrgn-b-lg text-center">
+                        <h2>{{'Skills Development Program' | translate}}</h2>
+                       <p>{{'Luxor University' | translate}}</p>
+                    </div>
+                      <form [formGroup]="signinForm" (ngSubmit)="onSubmit(signinForm)" fxLayoutAlign="center start">
+                      <div fxLayout="column" fxFlex.xs="100" fxFlex.sm="80" fxFlex.md="80" fxFlex.lg="70" fxFlex.xl="70" fxLayoutAlign="start">
+                         <mat-form-field class="full-wid mrgn-b-md">
+                            <input class="mrgn-t-none" matInput placeholder="{{'E-Mail' | translate}}" type="text"  formControlName="email" required>
+                            <span matSuffix><i class="material-icons">verified_user</i></span>
+                         </mat-form-field>
+                         <mat-form-field class="full-wid mrgn-b-md">
+                          <input class="mrgn-t-none" matInput placeholder="{{'Password' | translate}}" [type]="hide ? 'password' : 'text'"  formControlName="Paasword" required>
+                          <span matSuffix (click)="hide = !hide"><i class="material-icons">{{hide?  'visibility_off' : 'visibility' }}</i></span>
+                        </mat-form-field>
+                         <div class="mrgn-b-md"><a [routerLink]="['/session/forgot-passwordV2']">{{'Forgot Password?' | translate}}</a></div>
+                         <div fxLayoutAlign="center start" class=" mrgn-b-lg">
+                            <button mat-flat-button class="success-bg gene-btn-lg" [disabled]="!signinForm.valid">{{'LOGIN' | translate}}</button>
+                         </div>
+                      </div>
+                      </form>
+                   </div>
+                  </mat-card-content>
+              </mat-card>
+           </div>
+
+          </div>
+     </div>
+  </div>
+</div>

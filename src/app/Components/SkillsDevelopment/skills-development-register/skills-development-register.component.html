@@ -1,0 +1,196 @@
+<body>
+
+  <div class="split left" @slideLeft>
+   <div class="centered">
+   </div>
+  </div>
+
+  <div class="split right "  @slideRight>
+  <div class="container">
+    <div fxLayout="row wrap" fxLayoutAlign="start center" class="height-full form-wrap-row set-resp-space" fxLayoutGap.gt-md="15px">
+      <div class="mrgn-b-md"  fxLayout="column" fxFlex.xs="100" fxFlex.sm="80" fxFlex.md="80" fxFlex.lg="70" fxFlex.xl="70" fxLayoutAlign="start">
+  <mat-toolbar-row fxLayoutAlign="space-between" fxLayout.xs="column" fxLayoutAlign.xs="center center">
+      <span class="mrgn-b-sm" >
+        <img src="assets/img/logo.png" width="70" height="70" style="float: right;"/>
+        <img src="assets/img/FLDP.png" width="150" height="150" style="float: left;"/>
+     </span>
+</mat-toolbar-row>
+</div>
+
+<div fxLayout="column" fxFlex.xs="100" fxFlex.sm="80" fxFlex.md="80" fxFlex.lg="70" fxFlex.xl="70" fxLayoutAlign="start">
+    <form  [formGroup]="signUpForm" (ngSubmit)="onSubmit(signUpForm)">
+    <mat-tab-group mat-align-tabs="start" dir="rtl" style="width: 100%;" [selectedIndex]="selectedIndex">
+
+      <mat-tab label="{{'Step One' | translate}}" style="height: auto !important; overflow: hidden;">
+        <div fxLayout="row wrap" fxLayoutAlign="start center" class="height-full form-wrap-row set-resp-space" fxLayoutGap.gt-md="15px">
+          <div fxLayout="column" fxFlex.xs="100" fxFlex.sm="80" fxFlex.md="80" fxFlex.lg="70" fxFlex.xl="70" fxLayoutAlign="start">
+
+            <!--Full Name in Arabic-->
+            <mat-form-field class="full-wid mrgn-b-md">
+               <input class="mrgn-t-none" matInput placeholder="{{'Arabic Name' | translate}}" type="text" formControlName="fullArabicName"  required>
+               <mat-error *ngIf="signUpForm.controls['fullArabicName'].hasError('pattern') && signUpForm.controls['fullArabicName'].touched">{{
+                "arabicError" | translate
+              }}</mat-error>
+            </mat-form-field>
+
+            <!--Full English Name-->
+            <mat-form-field class="full-wid mrgn-b-md">
+              <input class="mrgn-t-none" matInput placeholder="{{'English Name' | translate}}" type="text"  formControlName="fullEnglishName"  required>
+              <mat-error *ngIf="signUpForm.controls['fullEnglishName'].hasError('pattern') && signUpForm.controls['fullEnglishName'].touched">{{
+                "englishError" | translate
+              }}</mat-error></mat-form-field>
+
+               <!--SSD-->
+               <mat-form-field class="full-wid mrgn-b-md">
+                <input class="mrgn-t-none" maxlength="14" matInput placeholder="{{'SSD' | translate}}" type="text"  formControlName="ssd"   required>
+              </mat-form-field>
+
+            <!--Gender-->
+            <mat-form-field class="full-wid mrgn-b-md">
+              <mat-label>{{'Gender' | translate}}</mat-label>
+                <mat-select formControlName="gender">
+                  <mat-option value=1>{{'male'| translate}}</mat-option>
+                  <mat-option value=2>{{'female'| translate}}</mat-option>
+                </mat-select>
+           </mat-form-field>
+
+             <!--BirthDate-->
+             <mat-form-field class="full-wid mrgn-b-md">
+               <mat-label>{{'Birth Date' | translate}}</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dob">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+           </mat-form-field>
+
+
+              <!--Phone-->
+              <mat-form-field class="full-wid mrgn-b-md">
+                <input class="mrgn-t-none" maxlength="11" matInput placeholder="{{'Phone' | translate}}" type="text"  formControlName="phone"  required>
+                <mat-hint>{{'Contain Whatsapp' | translate}}</mat-hint>
+              </mat-form-field>
+
+
+
+          </div>
+          <div fxLayout="column" fxFlex.xs="100" fxFlex.sm="80" fxFlex.md="80" fxFlex.lg="70" fxFlex.xl="70" fxLayoutAlign="start">
+            <button type="button" mat-raised-button color="primary" (click)="nextStep()">{{'Next' | translate}}</button>
+          </div>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="{{'Step Two' | translate}}">
+        <div fxLayout="row wrap" fxLayoutAlign="start center" class="height-full form-wrap-row set-resp-space" fxLayoutGap.gt-md="15px">
+          <div fxLayout="column" fxFlex.xs="100" fxFlex.sm="80" fxFlex.md="80" fxFlex.lg="70" fxFlex.xl="70" fxLayoutAlign="start">
+
+
+
+        <!--Nationality/Country-->
+            <mat-form-field class="full-wid mrgn-b-md">
+              <input class="mrgn-t-none" matInput placeholder="{{'Nationality/Country' | translate}}" type="text" formControlName="nationality" required>
+            </mat-form-field>
+
+            <!--Training Type-->
+              <mat-form-field class="full-wid mrgn-b-md">
+                <mat-label>{{'Training Type' | translate}}</mat-label>
+                  <mat-select formControlName="spaceilist">
+                    <mat-option value=1>{{'Leader'| translate}}</mat-option>
+                    <mat-option value=2>{{'Faculty member'| translate}}</mat-option>
+                    <mat-option value=3>{{'Adminstrative'| translate}}</mat-option>
+                    <mat-option value=4>{{'Employee outSide University'| translate}}</mat-option>
+                    <mat-option value=5>{{'Doctor'| translate}}</mat-option>
+                    <mat-option value=6>{{'Nursing'| translate}}</mat-option>
+                    <mat-option value=7>{{'Freelance'| translate}}</mat-option>
+                    <mat-option value=8>{{'Other'| translate}}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+
+          <!--Username-->
+          <mat-form-field class="full-wid mrgn-b-md">
+            <input class="mrgn-t-none" matInput placeholder="{{'Username' | translate}}" type="text"  formControlName="username" required>
+          </mat-form-field>
+
+
+          <!--Email-->
+          <mat-form-field class="full-wid mrgn-b-md">
+            <input class="mrgn-t-none" matInput placeholder="{{'E-Mail' | translate}}" type="email"  formControlName="email"  required>
+            <mat-error *ngIf="signUpForm.controls['email'].hasError('pattern') && signUpForm.controls['email'].touched">{{
+              "emailError" | translate
+            }}</mat-error>
+          </mat-form-field>
+
+         <!--Password-->
+         <mat-form-field class="full-wid mrgn-b-md">
+          <input class="mrgn-t-none" matInput placeholder="{{'Password' | translate}}" [type]="hide ? 'password' : 'text'"  formControlName="password" required>
+          <span matSuffix (click)="hide = !hide"><i class="material-icons">{{hide?  'visibility_off' : 'visibility' }}</i></span>
+        </mat-form-field>
+
+          <!--Confirm Password-->
+          <!-- <mat-form-field class="full-wid mrgn-b-md">
+            <input class="mrgn-t-none" matInput placeholder="{{'ConfirmPassword' | translate}}" [type]="hide ? 'password' : 'text'"  formControlName="confirmpassword" required>
+            <span matSuffix (click)="hide = !hide"><i class="material-icons">{{hide?  'visibility_off' : 'visibility' }}</i></span>
+            <mat-error *ngIf="signUpForm.controls['confirmpassword'].hasError('mustMatch') && signUpForm.controls['confirmpassword'].touched">{{
+              "confirmError" | translate
+            }}</mat-error>
+          </mat-form-field> -->
+
+
+       </div>
+       <div fxLayoutAlign="start space-between" fxLayout="column" fxFlex.xs="100" fxFlex.sm="80" fxFlex.md="80" fxFlex.lg="70" fxFlex.xl="70" fxLayoutAlign="start">
+        <button type="button" mat-raised-button color="primary" (click)="previousStep()">{{'Pervious'| translate}}</button>
+
+        <button type="button" mat-raised-button color="primary" (click)="nextStep()">{{'Next'| translate}}</button>
+        </div>
+       </div>
+      </mat-tab>
+
+      <mat-tab label="{{'Step Three' | translate}}">
+        <div fxLayout="row wrap" fxLayoutAlign="start center" class="height-full form-wrap-row set-resp-space" fxLayoutGap.gt-md="15px">
+          <div fxLayout="column" fxFlex.xs="100" fxFlex.sm="80" fxFlex.md="80" fxFlex.lg="70" fxFlex.xl="70" fxLayoutAlign="start">
+
+          <!--Educaction-->
+          <mat-form-field class="full-wid mrgn-b-md">
+            <input class="mrgn-t-none" matInput placeholder="{{'Educaction' | translate}}" type="text" formControlName="sceintifcDegree" required>
+          </mat-form-field>
+
+           <!--Current Job-->
+            <mat-form-field class="full-wid mrgn-b-md">
+              <input class="mrgn-t-none" matInput placeholder="{{'Current Job' | translate}}" type="text" formControlName="currentJob" required>
+            </mat-form-field>
+
+           <!--University-->
+           <mat-form-field class="full-wid mrgn-b-md">
+            <input class="mrgn-t-none" matInput placeholder="{{'University'| translate}}" type="text" formControlName="university" required>
+          </mat-form-field>
+
+
+           <!--Faculty-->
+           <mat-form-field class="full-wid mrgn-b-md">
+            <input class="mrgn-t-none" matInput placeholder="{{'Faculty'| translate}}" type="text" formControlName="faculity" required>
+          </mat-form-field>
+
+
+            <!--Belong to Luxor University-->
+             <mat-form-field class="full-wid mrgn-b-md">
+              <mat-label>{{'Belong to Luxor University' | translate}}</mat-label>
+                <mat-select formControlName="belongToUni">
+                  <mat-option value=1>{{'form University'| translate}}</mat-option>
+                  <mat-option value=2>{{'outside University'| translate}}</mat-option>
+                </mat-select>
+           </mat-form-field>
+
+
+     </div>
+     <div fxLayoutAlign="start space-between" fxLayout="column" fxFlex.xs="100" fxFlex.sm="80" fxFlex.md="80" fxFlex.lg="70" fxFlex.xl="70" fxLayoutAlign="start">
+      <button type="button" mat-raised-button color="primary" (click)="previousStep()">{{'Pervious'| translate}}</button>
+      <button type="submit" mat-raised-button color="accent">{{'Submit Data'| translate}}</button>
+    </div>
+     </div>
+      </mat-tab>
+
+   </mat-tab-group>
+  </form>
+  </div>
+  </div>
+  </div>
+</div>
+</body>

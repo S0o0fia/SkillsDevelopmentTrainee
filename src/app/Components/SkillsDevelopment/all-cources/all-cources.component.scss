@@ -1,0 +1,36 @@
+
+element.style , td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type, th.mat-header-cell:last-of-type
+
+{
+    text-align: center !important;
+}
+
+
+tr , td , th
+{
+    text-align: center;
+}
+
+tr th
+{
+    text-align: center;
+    background-color: #37474f;
+    color: white;
+    box-shadow: 1px 1px 5px black;
+
+
+}
+
+.red
+{
+  color : red ;
+  font-weight:  bold;
+  text-shadow: 1px 1px 3px grey;
+}
+
+.green
+{
+  color : green ;
+  font-weight:  bold;
+  text-shadow: 1px 1px 1px grey;
+}

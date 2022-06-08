@@ -1,0 +1,46 @@
+<div class="table-responsive">
+ <mat-card>
+   <mat-card-content>
+    <table class="table table-hover table-middle mb-0 table-bordered">
+      <thead  class="thead-dark">
+         <tr>
+            <th>{{'No' | translate}}</th>
+            <th>{{'Course Name' | translate}}</th>
+            <th>{{'Course Location' | translate}}</th>
+            <th>{{'Start Date' | translate}}</th>
+            <th>{{'End Date' |translate}}</th>
+            <th>{{'Course Type' |translate}}</th>
+            <th>{{'Course Proirity' |translate}}</th>
+            <th>{{'Course Time' | translate}}</th>
+            <th>{{'Course Status' | translate}}</th>
+            <th>{{'Course Sign up' |translate}}</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr *ngFor="let item of coursesList , let i = index;">
+            <td>{{i+1}}</td>
+            <td>{{item.courseName}}</td>
+            <td>{{item.courseLocation | translate}}</td>
+            <td>{{item.startDate}}</td>
+            <td>{{item.endDate}}</td>
+            <td>{{item.courseType | translate}}</td>
+            <td>{{item.coursePriority | translate}}</td>
+            <td>{{item.coursePeriod | translate}}</td>
+            <td class="green">{{item.courseStatus | translate}}</td>
+            <td>
+              <div>
+                 <button color="primary" mat-raised-button *ngIf="item.isRegisted == false" (click)="AssignCourse(item.id)"> {{'Register Course' | translate}}</button>
+                 <button color="primary" mat-raised-button *ngIf="item.isRegisted == true" disabled> {{'Registered' | translate}}</button>
+               </div>
+               <div>
+                <span class="red" *ngIf="item.courseStatus != 'Active' ">{{item.courseStatus | translate}}</span>
+               </div>
+            </td>
+        </tr>
+      </tbody>
+   </table>
+   </mat-card-content>
+ </mat-card>
+
+</div>
+

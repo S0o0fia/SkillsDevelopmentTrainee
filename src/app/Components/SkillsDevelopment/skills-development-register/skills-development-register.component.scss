@@ -1,0 +1,45 @@
+body {
+  font-family: Arial;
+  color: black;
+  font-size: large;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-image: url('../../../../assets/img/RegBack.jfif');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.right {
+  right: 0;
+  background-color: rgb(255, 255, 255);
+  font-size: large;
+}
+.mat-tab-body-content
+{
+  height: auto !important;
+  overflow: hidden;
+}
+
+.container
+{
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  width: 80%;
+overflow: hidden;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
