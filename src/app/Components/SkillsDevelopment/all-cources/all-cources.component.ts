@@ -15,6 +15,7 @@ export class AllCourcesComponent implements OnInit {
   courseType : ["none" , "general" , "medical"]
   courseLocation : ["none" , "online" , "onsite"]
   coursesList: any [] = []
+  fileName = '';
 
   constructor(private service : SkillsDevelopmentService) { }
 
@@ -50,4 +51,22 @@ export class AllCourcesComponent implements OnInit {
     )
   }
 
+  onFileSelected(event : any , id : number) {
+
+    const file:File = event.target.files[0];
+
+    if (file) {
+
+        this.fileName = file.name;
+        const formData = new FormData();
+        formData.append(this.fileName, file);
+        this.service.uploadReceiptFile(formData , id , sessionStorage.getItem('ssd')).subscribe(
+          (data)=> {
+              this.LoadData()
+          },
+          err=> console.log(err)
+        )
+
+    }
+  }
 }

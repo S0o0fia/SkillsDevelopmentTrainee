@@ -16,7 +16,7 @@ export interface Menu {
 
 const MENUITEMS = [
    {
-    state: 'AllAvaiblabeCourses',
+    state: 'AllCourses',
     name: 'All Avaiblabe Courses',
     type: 'link',
     icon: 'library_books',
@@ -31,12 +31,12 @@ const MENUITEMS = [
   {
     state: 'Profile',
     name: 'Profile',
-    type: 'button',
+    type: 'link',
     icon: 'person_pin',
   }
   ,
   {
-    state: 'Logout',
+    state: '',
     name: 'Logout',
     type: 'button',
     icon: 'exit_to_app',

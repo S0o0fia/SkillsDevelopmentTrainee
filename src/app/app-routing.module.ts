@@ -1,3 +1,4 @@
+import { AvailableCourseComponent } from './Components/SkillsDevelopment/available-course/available-course.component';
 
 import { HomeComponent } from './Components/SkillsDevelopment/home/home.component';
 import { SideBarComponent } from './Components/SkillsDevelopment/Shared/side-bar/side-bar.component';
@@ -8,14 +9,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { AllCourcesComponent } from './Components/SkillsDevelopment/all-cources/all-cources.component';
 
 const routes: Routes = [
-{path:'Login' , component: SkillsDevelopmentLoginComponent} ,
+{path:'' , component: SkillsDevelopmentLoginComponent} ,
 {path:'SkillsDevelopmentRegister' , component: SkillsDevelopmentRegisterComponent} ,
 {path:'Home' , component : HomeComponent ,
      children : [
-       {path :'AllCourses' , component : AllCourcesComponent }
+       {path :'AllCourses' , component : AllCourcesComponent },
+       {path : 'RegistedCourses' , component : AvailableCourseComponent}
 
      ] },
-{path: '',  redirectTo: '', pathMatch: 'full',}
+ {path: '',  redirectTo: '', pathMatch: 'full',}
 
 ];
 

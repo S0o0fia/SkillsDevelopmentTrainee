@@ -43,5 +43,10 @@ export class SkillsDevelopmentService {
       return this.http.post(this.baseUrl+url , data);
   }
 
+  public uploadReceiptFile (formData : FormData ,  courseId : number , ssd : string)
+  {
+    let url = `/SkillsDevelopmentCourses/AddTraineeReciept/${courseId}/${ssd}`
+    return this.http.post(this.baseUrl+url , formData);
+  }
 
 }

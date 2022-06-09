@@ -34,6 +34,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AllCourcesComponent } from './Components/SkillsDevelopment/all-cources/all-cources.component';
 import { FooterComponent } from './Components/SkillsDevelopment/Shared/footer/footer.component';
+import { AvailableCourseComponent } from './Components/SkillsDevelopment/available-course/available-course.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { FooterComponent } from './Components/SkillsDevelopment/Shared/footer/fo
     SideBarComponent,
     HomeComponent,
     AllCourcesComponent,
-    FooterComponent
+    FooterComponent,
+    AvailableCourseComponent
   ],
   imports: [
     BrowserModule,

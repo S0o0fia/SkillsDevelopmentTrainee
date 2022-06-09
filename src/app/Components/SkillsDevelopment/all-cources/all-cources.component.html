@@ -14,15 +14,16 @@
             <th>{{'Course Time' | translate}}</th>
             <th>{{'Course Status' | translate}}</th>
             <th>{{'Course Sign up' |translate}}</th>
+            <th>{{'Course Reciepts' |translate}}</th>
          </tr>
       </thead>
-      <tbody>
-         <tr *ngFor="let item of coursesList , let i = index;">
+      <tbody  *ngFor="let item of coursesList , let i = index;">
+         <tr *ngIf="item.courseStatus != 'Closed'">
             <td>{{i+1}}</td>
             <td>{{item.courseName}}</td>
             <td>{{item.courseLocation | translate}}</td>
-            <td>{{item.startDate}}</td>
-            <td>{{item.endDate}}</td>
+            <td>{{item.startDate |date : 'yyyy-MM-dd'}}</td>
+            <td>{{item.endDate |date : 'yyyy-MM-dd'}}</td>
             <td>{{item.courseType | translate}}</td>
             <td>{{item.coursePriority | translate}}</td>
             <td>{{item.coursePeriod | translate}}</td>
@@ -35,6 +36,33 @@
                <div>
                 <span class="red" *ngIf="item.courseStatus != 'Active' ">{{item.courseStatus | translate}}</span>
                </div>
+            </td>
+            <td>
+              <div>
+                 <div *ngIf="item.isPaid == false && item.isRegisted == true">
+                  <input type="file" class="file-input"
+                  (change)="onFileSelected($event , item.id)" #fileUpload style="display: none;">                 <div class="file-upload">
+                    <button mat-mini-fab color="accent" class="upload-btn"
+                      (click)="fileUpload.click()">
+                        <mat-icon>attach_file</mat-icon>
+                    </button>
+                    {{fileName || "ChooseImage" | translate}}
+                 </div>
+                 </div>
+                 <div *ngIf="item.isPaid == false && item.isRegisted == false">
+                     <span>{{'Register Please to Pay' | translate}}</span>
+                 </div>
+                 <div *ngIf="item.isPaid == true">
+                    <span>{{'Paid Done' | translate}}</span>
+                    <div>
+                      <button mat-mini-fab color="accent" class="upload-btn"
+                      (click)="fileUpload.click()">
+                        <mat-icon>attach_file</mat-icon>
+                    </button>
+                    {{fileName || "EditImage" | translate}}
+                    </div>
+                 </div>
+                </div>
             </td>
         </tr>
       </tbody>

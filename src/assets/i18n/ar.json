@@ -81,6 +81,13 @@
      "Required" : "إجباري" ,
      "Optional" : "اختياري" ,
      "General" : "عام" ,
-     "Medicial" :"طبي"
+     "Medicial" :"طبي" ,
+      "Course Reciepts" :"رفع وصل الدفع",
+      "ChooseImage" :"رفع الصورة",
+      "EditImage" : "تغيير الصورة المرفوعة؟" ,
+      "Paid Done" : "تم الدفع" ,
+      "Register Please to Pay" : "قم بالتسجيل لإكمال الدفع" ,
+      "Course Lectures" : "محاضرات الورشة"
+
 
 }
