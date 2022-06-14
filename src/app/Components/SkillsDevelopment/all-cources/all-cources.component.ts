@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AssignCourse } from './../../../Model/AssignCourse';
 import { SkillsDevelopmentService } from './../../../Services/skills-development.service';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +18,7 @@ export class AllCourcesComponent implements OnInit {
   coursesList: any [] = []
   fileName = '';
 
-  constructor(private service : SkillsDevelopmentService) { }
+  constructor(private service : SkillsDevelopmentService , private snackBar : MatSnackBar) { }
 
   ngOnInit(): void {
       this.LoadData();
@@ -62,6 +63,7 @@ export class AllCourcesComponent implements OnInit {
         formData.append(this.fileName, file);
         this.service.uploadReceiptFile(formData , id , sessionStorage.getItem('ssd')).subscribe(
           (data)=> {
+              this.snackBar.open("تم رفع الصورة" , null , {duration : 3000})
               this.LoadData()
           },
           err=> console.log(err)

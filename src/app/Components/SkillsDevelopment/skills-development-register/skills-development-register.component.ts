@@ -113,7 +113,7 @@ export class SkillsDevelopmentRegisterComponent implements OnInit {
         err=> {
           if(err.error == 12)
           {
-             this.snackbar.open("هذا المستخدم مسجل من قبل" , null);
+             this.snackbar.open("هذا المستخدم مسجل من قبل" , null ,  {duration : 3000});
           }
         }
       )

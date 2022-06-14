@@ -41,7 +41,8 @@
               <div>
                  <div *ngIf="item.isPaid == false && item.isRegisted == true">
                   <input type="file" class="file-input"
-                  (change)="onFileSelected($event , item.id)" #fileUpload style="display: none;">                 <div class="file-upload">
+                  (change)="onFileSelected($event , item.id)" #fileUpload style="display: none;">
+                  <div class="file-upload">
                     <button mat-mini-fab color="accent" class="upload-btn"
                       (click)="fileUpload.click()">
                         <mat-icon>attach_file</mat-icon>
@@ -55,11 +56,13 @@
                  <div *ngIf="item.isPaid == true">
                     <span>{{'Paid Done' | translate}}</span>
                     <div>
+                      <input type="file" class="file-input"
+                      (change)="onFileSelected($event , item.id)" #fileUpload2 style="display: none;">
                       <button mat-mini-fab color="accent" class="upload-btn"
-                      (click)="fileUpload.click()">
+                      (click)="fileUpload2.click()">
                         <mat-icon>attach_file</mat-icon>
                     </button>
-                    {{fileName || "EditImage" | translate}}
+                      {{"EditImage" | translate}}
                     </div>
                  </div>
                 </div>
