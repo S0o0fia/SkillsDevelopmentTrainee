@@ -32,9 +32,11 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
 import { AllCourcesComponent } from './Components/SkillsDevelopment/all-cources/all-cources.component';
 import { FooterComponent } from './Components/SkillsDevelopment/Shared/footer/footer.component';
 import { AvailableCourseComponent } from './Components/SkillsDevelopment/available-course/available-course.component';
+import { CourseDetailsComponent } from './Components/SkillsDevelopment/course-details/course-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +46,8 @@ import { AvailableCourseComponent } from './Components/SkillsDevelopment/availab
     HomeComponent,
     AllCourcesComponent,
     FooterComponent,
-    AvailableCourseComponent
+    AvailableCourseComponent,
+    CourseDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { AvailableCourseComponent } from './Components/SkillsDevelopment/availab
     ReactiveFormsModule,
     MatTooltipModule,
     MatIconModule,
+    MatDialogModule,
     MatCheckboxModule,
     MatListModule,
     MatSnackBarModule,
@@ -66,6 +70,7 @@ import { AvailableCourseComponent } from './Components/SkillsDevelopment/availab
     MatBadgeModule,
     MatTabsModule,
     MatCardModule,
+
     MatFormFieldModule,
     PerfectScrollbarModule,
     FormsModule,

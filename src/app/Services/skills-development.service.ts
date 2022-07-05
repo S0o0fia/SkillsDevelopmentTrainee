@@ -8,7 +8,7 @@ import { AssignCourse } from '../Model/AssignCourse';
 
 export class SkillsDevelopmentService {
 
-  baseUrl : string = 'http://localhost:65535/api';
+  baseUrl : string = 'http://luxor.edu.eg:8098/api';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8'})
@@ -47,6 +47,13 @@ export class SkillsDevelopmentService {
   {
     let url = `/SkillsDevelopmentCourses/AddTraineeReciept/${courseId}/${ssd}`
     return this.http.post(this.baseUrl+url , formData);
+  }
+
+
+  getCourseDetails(courseId : number)
+  {
+    let url = '/SkillsDevelopmentCourses/GetCourseTrainers/'+courseId ;
+    return this.http.get(this.baseUrl+url);
   }
 
 }

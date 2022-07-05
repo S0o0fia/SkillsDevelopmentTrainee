@@ -17,7 +17,12 @@ const routes: Routes = [
        {path : 'RegistedCourses' , component : AvailableCourseComponent}
 
      ] },
- {path: '',  redirectTo: '', pathMatch: 'full',}
+    {
+      path: '**',
+    component:SkillsDevelopmentLoginComponent
+    },
+
+
 
 ];
 

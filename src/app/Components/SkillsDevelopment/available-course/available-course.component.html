@@ -11,21 +11,21 @@
              <th>{{'End Date' |translate}}</th>
              <th>{{'Course Type' |translate}}</th>
              <th>{{'Course Proirity' |translate}}</th>
-             <th>{{'Course Time' | translate}}</th>
-            <th>{{'Course Lectures' |translate}}</th>
-         </tr>
+             <th>{{'Course Period' |translate}}</th>
+             <th>{{'Course Details' | translate}}</th>
+          </tr>
        </thead>
-       <tbody  *ngFor="let item of coursesList , let i = index;">
+       <tbody  *ngFor="let item of coursesList , let i = index;" class="text-center">
           <tr *ngIf="item.courseStatus == 'Active' && item.isRegisted == true && item.isPaid == true">
              <td>{{i+1}}</td>
              <td>{{item.courseName}}</td>
              <td>{{item.courseLocation | translate}}</td>
-             <td>{{item.startDate |date : 'yyyy-MM-dd'}}</td>
-             <td>{{item.endDate |date : 'yyyy-MM-dd'}}</td>
+             <td>{{item.fromDate |date : 'yyyy-MM-dd'}}</td>
+             <td>{{item.toDate |date : 'yyyy-MM-dd'}}</td>
              <td>{{item.courseType | translate}}</td>
              <td>{{item.coursePriority | translate}}</td>
              <td>{{item.coursePeriod | translate}}</td>
-
+             <td ><mat-icon (click)="openDetails(item)">arrow_drop_down_circle</mat-icon></td>
          </tr>
        </tbody>
     </table>

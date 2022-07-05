@@ -60,6 +60,7 @@ export class SkillsDevelopmentLoginComponent implements OnInit {
        (data : any)=> {
          sessionStorage.setItem("ssd" , data.ssd)
          sessionStorage.setItem("token" , data.token)
+         sessionStorage.setItem("username" , data.username)
          this.router.navigate(['/Home/AllCourses'])
        },
        err=>{

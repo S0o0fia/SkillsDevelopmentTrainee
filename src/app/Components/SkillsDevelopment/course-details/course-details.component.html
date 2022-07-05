@@ -1,0 +1,42 @@
+<div class="container" dir="rtl">
+  <h1 mat-dialog-title style="font-weight: bold;">{{'ِCourseLecture' | translate}} {{data.name}}</h1>
+<div>
+  <div class="table-responsive">
+
+      <mat-card-content class=" table-responsive">
+       <table class="table table-hover table-middle mb-0 table-bordered">
+         <thead  class="thead-dark">
+            <tr>
+               <th>{{'Trainer Name' | translate}}</th>
+               <th>{{'Start Date' | translate}}</th>
+               <th>{{'End Date' | translate}}</th>
+               <th>{{'Start Time' | translate}}</th>
+               <th>{{'End Time' | translate}}</th>
+               <th>{{'Meeting Link' | translate}}</th>
+             </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let item of trainerData">
+               <td>{{item.trainerName}}</td>
+               <td>{{item.fromDate | date : 'dd-MM-yyyy'}}</td>
+               <td>{{item.toDate | date  : 'dd-MM-yyyy'}}</td>
+               <td>{{item.fromTime}}</td>
+               <td>{{item.toTime}}</td>
+               <td>
+                 <a [href]="item.meetingLink" *ngIf="item.meetingLink != ''" target="_blank">{{item.meetingLink}}</a>
+                 <span *ngIf="item.meetingLink == '' ">لم يتم رفع الرابط</span>
+
+                </td>
+              </tr>
+         </tbody>
+      </table>
+      </mat-card-content>
+
+
+   </div>
+
+   <div mat-dialog-actions style="text-align: center; justify-content: center;">
+     <button mat-raised-button color="warn" [mat-dialog-close]="data.animal" cdkFocusInitial>{{'Close' | translate}}</button>
+  </div>
+
+</div>

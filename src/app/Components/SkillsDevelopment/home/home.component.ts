@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 	sidenavOpen           : boolean = true;
 	isMobile              : boolean = false;
 	isFullscreen          : boolean = false;
+  username              : string   = '';
 	collapseSidebarStatus : boolean;
 	header                : string;
 	dark                  : boolean;
@@ -31,7 +32,7 @@ export class HomeComponent implements OnInit {
 	url                   : string;
 	windowSize            : number;
 	private _routerEventsSubscription  : Subscription;
-	private _router                    : Subscription;
+
 	@ViewChild('sidenav',{static : true}) sidenav;
 
 	sideBarFilterClass : any = [
@@ -122,10 +123,10 @@ export class HomeComponent implements OnInit {
 	}
 
 	ngOnInit() {
+    this.username = sessionStorage.getItem('username')
 	}
 
 	ngOnDestroy() {
-		this._router.unsubscribe();
 	}
 
 	/**
@@ -184,6 +185,7 @@ export class HomeComponent implements OnInit {
 	  * logOut method is used to log out the  template.
 	  */
 	logOut() {
+    this.router.navigate(['/']);
 
 	}
 

@@ -34,13 +34,7 @@ const MENUITEMS = [
     type: 'link',
     icon: 'person_pin',
   }
-  ,
-  {
-    state: '',
-    name: 'Logout',
-    type: 'button',
-    icon: 'exit_to_app',
-  }
+ 
 ];
 
 @Injectable()

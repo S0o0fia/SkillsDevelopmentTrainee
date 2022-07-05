@@ -87,7 +87,15 @@
       "EditImage" : "تغيير الصورة المرفوعة؟" ,
       "Paid Done" : "تم الدفع" ,
       "Register Please to Pay" : "قم بالتسجيل لإكمال الدفع" ,
-      "Course Lectures" : "محاضرات الورشة"
+      "Course Lectures" : "محاضرات الورشة" ,
+      "Course Details" : "تفاصيل الورشة" ,
+      "Close" : "إغلاق" ,
+      "ِCourseLecture" :"محاضرات الدورة" ,
+      "Trainer Name" : "اسم المدرب" ,
+      "Start Time" : "بداية وقت المحاضرة" ,
+      "End Time" : "نهاية وقت المحاضرة" ,
+      "Meeting Link" : "رابط المحاضرة"
+
 
 
 }

@@ -1,4 +1,6 @@
+import { CourseDetailsComponent } from './../course-details/course-details.component';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { AssignCourse } from 'src/app/Model/AssignCourse';
 import { SkillsDevelopmentService } from 'src/app/Services/skills-development.service';
@@ -19,7 +21,7 @@ export class AvailableCourseComponent implements OnInit {
   coursesList: any [] = []
   fileName = '';
 
-  constructor(private service : SkillsDevelopmentService) { }
+  constructor(private service : SkillsDevelopmentService , private dailog : MatDialog) { }
 
   ngOnInit(): void {
       this.LoadData();
@@ -36,6 +38,13 @@ export class AvailableCourseComponent implements OnInit {
     )
   }
 
-
+  openDetails(course : any)
+  {
+     this.dailog.open(CourseDetailsComponent , {
+       data : {id : course.id , name : course.courseName},
+       position : {top:"10%" },
+       width : "50%"
+     })
+  }
 
 }
